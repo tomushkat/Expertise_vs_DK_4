@@ -1,0 +1,38 @@
+---
+title: "data preperation"
+format: html
+editor: visual
+---
+
+```{r, warning = FALSE, message = FALSE}
+pacman::p_load(tidyverse, doSPSS, skimr, effectsize)
+```
+
+```{r, warning = FALSE, message = FALSE}
+data <- read_csv('C:\\Tom_new\\Doctorate\\Dont know\\Experiments\\Section 2\\Expertise_vs_DK_4\\Data\\data for prep.csv')
+
+data <- data %>%
+  filter(Attention == 'Maybe'
+         , Honesty == 'Yes, I put in a reasonable effort'
+         , Consecutively == 'Yes'
+         , Disturbances == 'No'
+         , Alone == 'Alone') %>% 
+  mutate(clead_duration = sdOutliers(duration_minutes)) %>% 
+  drop_na(clead_duration)
+
+  
+data <- data %>% 
+  mutate(Expertise = rowMeans(cbind(Competent, Intelligent, Educated, Professional, Experienced, Qualified), na.rm = T)
+         , Integrity = rowMeans(cbind(Helpful, Sincere,	Honest,	Just), na.rm = T)
+         , Benevolece = rowMeans(cbind(Unselfish,	Fair,	Moral,	Ethical,	Responsible,	Considerate), na.rm = T)
+         , validation_Expert_Knowledge = rowMeans(cbind(vlaKnowledge,	valExpert), na.rm = T)
+        )
+
+write.csv(data, 'C:\\Tom_new\\Doctorate\\Dont know\\Experiments\\Section 2\\Expertise_vs_DK_4\\Data\\data_for_analysis.csv')
+
+```
+
+
+
+
+
