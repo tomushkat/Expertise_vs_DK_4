@@ -1,5 +1,5 @@
 ---
-title: "Analysis"
+title: "Experiment 4"
 author: "Tom Mushkat"
 format: 
    html:
@@ -9,122 +9,135 @@ editor: visual
 ---
 
 ```{r, warning = FALSE, message = FALSE}
-pacman::p_load(tidyverse, doSPSS, skimr, effectsize)
+pacman::p_load(tidyverse, doSPSS, skimr, effectsize, ez, here)
 ```
 
 ```{r, warning = FALSE, message = FALSE}
-Data <- read_csv('C:\\Tom_new\\Doctorate\\Dont know\\Experiments\\Section 2\\Expertise_vs_DK_4\\Data\\data_for_analysis.csv')
-
+Data <- read_csv(here('Data//data_for_analysis.csv'))
 ```
 
 # Expertise
+
 ```{r, warning = FALSE, message = FALSE}
 
 model <- twoWay(Data$Expertise, Data$emphesize, Data$Knowing)
 
 ```
 
-
 ## Figure
+
 ```{r, warning = FALSE, message = FALSE}
 model$Figure
 ```
 
 ## Descriptive Statistics
+
 ```{r, warning = FALSE, message = FALSE}
 model$Descriptive_Statistics
 ```
 
 ## Anova
+
 ```{r, warning = FALSE, message = FALSE}
 model$Model_summary
 ```
 
-
 # Integrity
+
 ```{r, warning = FALSE, message = FALSE}
 model <- twoWay(Data$Integrity, Data$emphesize, Data$Knowing)
 
 ```
 
 ## Figure
+
 ```{r, warning = FALSE, message = FALSE}
 model$Figure
 ```
 
 ## Descriptive Statistics
+
 ```{r, warning = FALSE, message = FALSE}
 model$Descriptive_Statistics
 ```
 
 ## Anova
+
 ```{r, warning = FALSE, message = FALSE}
 model$Model_summary
 ```
 
 # Benevolece
+
 ```{r, warning = FALSE, message = FALSE}
 model <- twoWay(Data$Benevolece, Data$emphesize, Data$Knowing)
 
 ```
 
 ## Figure
+
 ```{r, warning = FALSE, message = FALSE}
 model$Figure
 ```
 
 ## Descriptive Statistics
+
 ```{r, warning = FALSE, message = FALSE}
 model$Descriptive_Statistics
 ```
 
 ## Anova
+
 ```{r, warning = FALSE, message = FALSE}
 model$Model_summary
 ```
 
 # Compliance
+
 ```{r, warning = FALSE, message = FALSE}
 model <- twoWay(Data$Compliance, Data$emphesize, Data$Knowing)
 
 ```
 
 ## Figure
+
 ```{r, warning = FALSE, message = FALSE}
 model$Figure
 ```
 
 ## Descriptive Statistics
+
 ```{r, warning = FALSE, message = FALSE}
 model$Descriptive_Statistics
 ```
 
 ## Anova
+
 ```{r, warning = FALSE, message = FALSE}
 model$Model_summary
 ```
 
 # validation_Expert_Knowledge
+
 ```{r, warning = FALSE, message = FALSE}
 model <- twoWay(Data$validation_Expert_Knowledge, Data$emphesize, Data$Knowing)
 
 ```
 
 ## Figure
+
 ```{r, warning = FALSE, message = FALSE}
 model$Figure
 ```
 
 ## Descriptive Statistics
+
 ```{r, warning = FALSE, message = FALSE}
 model$Descriptive_Statistics
 ```
 
 ## Anova
+
 ```{r, warning = FALSE, message = FALSE}
 model$Model_summary
 ```
-
-
-
-
